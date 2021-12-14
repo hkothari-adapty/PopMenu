@@ -83,6 +83,10 @@ final public class PopMenuViewController: UIViewController {
     
     /// Menu border width
     public var borderWidth: CGFloat = 0
+    
+    /// Menu shadow radius
+    public var shadowRadius: CGFloat = 5
+    
     // MARK: - Constraints
     
     private(set) var contentLeftConstraint: NSLayoutConstraint!
@@ -271,7 +275,7 @@ extension PopMenuViewController {
     /// Setup the content view.
     fileprivate func configureContentView() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addShadow(offset: .init(width: 0, height: 1), opacity: 0.5, radius: 20)
+        containerView.addShadow(offset: .init(width: 0, height: 1), opacity: 0.5, radius: shadowRadius)
         containerView.layer.cornerRadius = appearance.popMenuCornerRadius
         containerView.backgroundColor = .clear
         

@@ -52,6 +52,9 @@ final public class PopMenuManager: NSObject {
     
     /// Menu border width
     public var borderWidth: CGFloat = 0
+    
+    /// Menu shadow radius
+    public var shadowRadius: CGFloat = 5
     // MARK: - Important Methods
     
     /// Configure and load pop menu view controller.
@@ -67,6 +70,7 @@ final public class PopMenuManager: NSObject {
         popMenu.rightMargin = rightMargin
         popMenu.borderColor = borderColor
         popMenu.borderWidth = borderWidth
+        popMenu.shadowRadius = shadowRadius
     }
     
     /// Initializer with appearance.
