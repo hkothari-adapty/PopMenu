@@ -156,7 +156,7 @@ public struct PopMenuActionSeparator: Equatable {
     public let color: Color
     
     /// Fill separator color with given color and height.
-    public static func fill(_ color: Color = Color.white.withAlphaComponent(0.5), height: CGFloat = 0.5) -> PopMenuActionSeparator {
+    public static func fill(_ color: Color = Color.white.withAlphaComponent(1), height: CGFloat = 0.5) -> PopMenuActionSeparator {
         return PopMenuActionSeparator(height: height, color: color)
     }
     
