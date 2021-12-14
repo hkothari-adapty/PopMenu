@@ -41,6 +41,17 @@ final public class PopMenuManager: NSObject {
     /// Every action item about to be displayed.
     public var actions: [PopMenuAction] = []
     
+    /// Margin on left
+    public var leftMargin: CGFloat = 8
+    
+    /// Margin on right
+    public var rightMargin: CGFloat = 8
+    
+    /// Menu border color
+    public var borderColor: CGColor = UIColor.clear.cgColor
+    
+    /// Menu border width
+    public var borderWidth: CGFloat = 0
     // MARK: - Important Methods
     
     /// Configure and load pop menu view controller.
@@ -52,6 +63,10 @@ final public class PopMenuManager: NSObject {
         popMenu.shouldDismissOnSelection = popMenuShouldDismissOnSelection
         popMenu.didDismiss = popMenuDidDismiss
         popMenu.shouldEnableHaptics = popMenuShouldEnableHaptics
+        popMenu.leftMargin = leftMargin
+        popMenu.rightMargin = rightMargin
+        popMenu.borderColor = borderColor
+        popMenu.borderWidth = borderWidth
     }
     
     /// Initializer with appearance.

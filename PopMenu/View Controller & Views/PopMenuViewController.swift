@@ -72,6 +72,17 @@ final public class PopMenuViewController: UIViewController {
     /// Handler for when the menu is dismissed.
     public var didDismiss: ((Bool) -> Void)?
     
+    /// Margin on left
+    public var leftMargin: CGFloat = 8
+    
+    /// Margin on right
+    public var rightMargin: CGFloat = 8
+    
+    /// Menu border color
+    public var borderColor: CGColor = UIColor.clear.cgColor
+    
+    /// Menu border width
+    public var borderWidth: CGFloat = 0
     // MARK: - Constraints
     
     private(set) var contentLeftConstraint: NSLayoutConstraint!
@@ -275,7 +286,7 @@ extension PopMenuViewController {
         if colors.count > 0 {
             if colors.count == 1 {
                 // Configure solid fill background.
-                contentView.backgroundColor = colors.first?.withAlphaComponent(1)
+                contentView.backgroundColor = colors.first?.withAlphaComponent(0.9)
                 contentView.startColor = .clear
                 contentView.endColor = .clear
             } else {
@@ -289,7 +300,8 @@ extension PopMenuViewController {
 
         containerView.addSubview(blurOverlayView)
         containerView.addSubview(contentView)
-        
+        containerView.layer.borderWidth = borderWidth
+        containerView.layer.borderColor = borderColor
         setupContentConstraints()
     }
     
@@ -348,8 +360,8 @@ extension PopMenuViewController {
     /// - Returns: The source origin point
     fileprivate func calculateContentOrigin(with size: CGSize) -> CGPoint {
         guard let sourceFrame = absoluteSourceFrame else { return CGPoint(x: view.center.x - size.width / 2, y: view.center.y - size.height / 2) }
-        let minContentPos: CGFloat = UIScreen.main.bounds.size.width * 0.05
-        let maxContentPos: CGFloat = UIScreen.main.bounds.size.width * 0.95
+        let minContentPos: CGFloat = leftMargin
+        let maxContentPos: CGFloat = UIScreen.main.bounds.width - rightMargin
         
         // Get desired content origin point
         let offsetX = (size.width - sourceFrame.size.width ) / 2
