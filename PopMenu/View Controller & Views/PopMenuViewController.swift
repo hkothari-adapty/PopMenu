@@ -290,7 +290,7 @@ extension PopMenuViewController {
         if colors.count > 0 {
             if colors.count == 1 {
                 // Configure solid fill background.
-                contentView.backgroundColor = colors.first?.withAlphaComponent(0.9)
+                contentView.backgroundColor = colors.first?.withAlphaComponent(1.0)
                 contentView.startColor = .clear
                 contentView.endColor = .clear
             } else {
